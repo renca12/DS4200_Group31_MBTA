@@ -18,15 +18,17 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background: var(--bg-color);
   color: var(--text-color);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* ---------- THE ORANGE FRAME ---------- */
+
+
 body::before {
   content: "";
   position: fixed;
@@ -40,9 +42,25 @@ body::before {
   border-radius: 0;
 }
 
+
+/* ---------- SCROLLABLE FRAME CONTENT ---------- */
+.frame-content {
+  position: relative;
+  top: 4rem;
+  left: 4rem;
+  right: 4rem;
+  bottom: 0rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0rem;
+  padding: 2rem;
+  z-index: 1;
+  background: var(--bg-color);
+}
+
 /* ---------- HEADER ---------- */
 .header {
-  position: relative;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
