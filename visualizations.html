@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>MBTA Project | Visualizations</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">MBTA Project Group 31</a>
+
+      <nav class="navbar">
+        <a href="references.html">References</a>
+        <a href="visualizations.html" class="active">Visualizations</a>
+        <a href="summary.html">Summary</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h1>MBTA Data Visualizations</h1>
+
+      <div class="tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="tab1">Graph 1</button>
+          <button class="tab-btn" data-tab="tab2">Graph 2</button>
+          <button class="tab-btn" data-tab="tab3">Graph 3</button>
+          <button class="tab-btn" data-tab="tab4">Graph 4</button>
+          <button class="tab-btn" data-tab="tab5">Graph 5</button>
+        </div>
+
+        <div class="tab-content">
+          <div id="tab1" class="tab-pane active">
+            <p>[Visualization 1 Placeholder – Graph 1]</p>
+          </div>
+          <div id="tab2" class="tab-pane">
+            <p>[Visualization 2 Placeholder – Graph 2]</p>
+          </div>
+          <div id="tab3" class="tab-pane">
+            <p>[Visualization 3 Placeholder – Graph 3]</p>
+          </div>
+          <div id="tab4" class="tab-pane">
+            <p>[Visualization 4 Placeholder – Graph 4]</p>
+          </div>
+          <div id="tab5" class="tab-pane">
+            <p>[Visualization 5 Placeholder – Graph 5]</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Tab switching logic
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabPanes = document.querySelectorAll(".tab-pane");
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remove active states
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+          // Add to current
+          btn.classList.add("active");
+          const target = document.getElementById(btn.dataset.tab);
+          target.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

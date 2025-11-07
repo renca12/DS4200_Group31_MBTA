@@ -1,0 +1,257 @@
+/* ---------- GENERAL RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------- COLORS ---------- */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --bold-color: #ed8b00; 
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- THE ORANGE FRAME ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 4rem;
+  left: 4rem;
+  right: 4rem;
+  bottom: 4rem;
+  border: 12px solid var(--bold-color);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 0;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 10%;
+  z-index: 2; 
+  background: transparent;
+}
+
+        /** ----- logo ----- **/ 
+.logo {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--text-color);
+  transition: 0.3s ease;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: var(--bg-color)
+}
+
+
+        /** ----- navigation bar ----- **/ 
+.navbar a {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-left: -0.5rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: var(--bg-color)
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--bold-color);
+}
+
+/* ---------- CONTENT ---------- */
+.content {
+  padding: 4rem 10%;
+  text-align: center;
+  z-index: 1;
+}
+
+.content h1 {
+  font-size: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  line-height: 1.2;
+}
+
+.content p {
+  font-family: "Inter", sans-serif;
+  font-weight: 500; 
+  font-size: 1.6rem; 
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+body.references-page .content {
+  padding: 4rem 10%;
+}
+
+body.references-page .content h1 {
+  font-size: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+body.home-page .content {
+    flex-direction: column; 
+    display: flex;
+    text-align: center
+}
+
+
+p .type {
+  color: var(--bold-color); 
+  font-weight: 700; 
+}
+
+/** ---------- VISUALIZATIONS ---------- **/
+
+        /** ----- capsules ----- **/ 
+
+.capsules{
+    padding: 100px 15px;
+    background: var(--bg-color);
+    text-align: center;
+}
+
+.capsules h2{
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.capsule-items{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 3rem;              
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.capsule-item{
+    width: 100%;
+    max-width: 500px;      
+}
+
+.capsule-content{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: 25% / 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.capsule-content img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;        
+    border-radius: 25% / 50%;
+    transition: 0.4s ease-in-out;
+}
+
+.capsule-content img:hover{
+    opacity: 0.9;
+}
+
+.capsule-description{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--bold-color);
+    text-align: center;
+    pointer-events: none;
+    text-shadow: 2px 2px 8px #ffffff;
+    padding: 0 1rem;
+}
+
+.capsule-content:hover .capsule-description {
+    color: #ffffff; /* text turns white on hover */
+    text-shadow: 2px 2px 8px #000000;
+    transition: color 0.3s ease; /* smooth transition */
+}
+
+
+/** ---------- VISUALIZATIONS ---------- **/
+
+        /** ----- tabs ----- **/ 
+.tabs {
+  margin-top: 4rem;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 3px solid var(--bold-color);
+  color: var(--text-color);
+  padding: 1rem 2.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: var(--bold-color);
+  color: #fff;
+}
+
+.tab-btn.active {
+  background: var(--bold-color);
+  color: #fff;
+}
+
+.tab-content {
+  background: var(--bg-color);
+  padding: 4rem;
+  min-height: 400px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
