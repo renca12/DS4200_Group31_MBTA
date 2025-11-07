@@ -82,7 +82,7 @@ body::before {
   color: var(--bold-color);
 }
 
-/* ---------- CONTENT ---------- */
+/* ---------- CONTENT ---------- */ 
 .content {
   padding: 4rem 10%;
   text-align: center;
@@ -193,9 +193,9 @@ p .type {
 }
 
 .capsule-content:hover .capsule-description {
-    color: #ffffff; /* text turns white on hover */
+    color: #ffffff; 
     text-shadow: 2px 2px 8px #000000;
-    transition: color 0.3s ease; /* smooth transition */
+    transition: color 0.3s ease; 
 }
 
 

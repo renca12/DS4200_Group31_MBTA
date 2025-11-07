@@ -54,18 +54,18 @@
       </div>
     </main>
 
+
     <script>
-      // Tab switching logic
+    // tab switching
       const tabButtons = document.querySelectorAll(".tab-btn");
       const tabPanes = document.querySelectorAll(".tab-pane");
 
       tabButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-          // Remove active states
+
           tabButtons.forEach((b) => b.classList.remove("active"));
           tabPanes.forEach((pane) => pane.classList.remove("active"));
 
-          // Add to current
           btn.classList.add("active");
           const target = document.getElementById(btn.dataset.tab);
           target.classList.add("active");
