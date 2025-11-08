@@ -38,8 +38,28 @@ body::before {
   bottom: 4rem;
   border: 12px solid var(--bold-color);
   pointer-events: none;
-  z-index: 0;
+  z-index: 9900;
   border-radius: 0;
+}
+
+/* -------- WHITE OUTER AREA -------- */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 9998; /* below frame but above page background */
+  pointer-events: none;
+  /* creates a "cutout" for the inner content area */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  padding: 4rem;
 }
 
 
@@ -56,6 +76,8 @@ body::before {
   padding: 2rem;
   z-index: 1;
   background: var(--bg-color);
+  scrollbar-gutter: stable;
+  
 }
 
 /* ---------- HEADER ---------- */
@@ -66,7 +88,7 @@ body::before {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 10%;
-  z-index: 2; 
+  z-index: 9999; 
   background: transparent;
 }
 
@@ -78,6 +100,7 @@ body::before {
   transition: 0.3s ease;
   padding-left: 2rem;
   padding-right: 2rem;
+  border-radius: 2% / 50%;
   background-color: var(--bg-color)
 }
 
@@ -92,7 +115,8 @@ body::before {
   border-bottom: 2px solid transparent;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: var(--bg-color)
+  background-color: var(--bg-color);
+  border-radius: 2% / 50%;
 }
 
 .navbar a:hover,
@@ -105,6 +129,7 @@ body::before {
   padding: 4rem 10%;
   text-align: center;
   z-index: 1;
+  margin: 0 auto; 
 }
 
 .content h1 {
@@ -272,4 +297,52 @@ p .type {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/** Visualizations within the tab panes **/ 
+
+.visualization-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap; 
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.visualization-area {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+}
+
+.visualization-area img,
+.visualization-area iframe {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.visualization-text {
+  flex: 1 1 40%;
+  max-width: 500px;
+}
+
+.visualization-text h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--bold-color);
+  margin-bottom: 1rem;
+}
+
+.visualization-text p {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.6;
 }
