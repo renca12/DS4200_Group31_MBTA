@@ -6,6 +6,12 @@
           content="width=device-width, initial-scale=1.0" />
     <title>MBTA Project | Visualizations</title>
 
+    <!-- Vega Install for interactive altair chart on website -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <!-- Style Referencing -->
     <link rel="stylesheet" href="style.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
@@ -40,15 +46,13 @@
             <div id="tab1" class="tab-pane active">
               <div class="visualization-block">
                   <div class="visualization-area">
-                    <!-- Replace this with your chart, image, or iframe -->
-                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                    <div id="chart1"></div>
                   </div>
 
                   <div class="visualization-text">
-                    <h3>Graph 1</h3>
+                    <h3> Graph 1</h3>
                     <p>
-                      This is where out very specific and incredibly accurate and super precise and amazingly perfect description
-                      of our simply fantastic project visualization is going to be. no cap all hat. 
+                      This visualization ..... 
                     </p>
                   </div>
                 </div>
@@ -61,7 +65,7 @@
                   </div>
 
                   <div class="visualization-text">
-                    <h3>Graph 2</h3>
+                    <h3>Graph 21</h3>
                     <p>
                       This is where out very specific and incredibly accurate and super precise and amazingly perfect description
                       of our simply fantastic project visualization is going to be. no cap all hat. 
@@ -139,6 +143,15 @@
           target.classList.add("active");
         });
       });
+    </script>
+
+    <script>
+      fetch("data/avg_delay_min_per_stop.json")
+        .then(response => response.json())
+        .then(spec => {
+          vegaEmbed("#chart1", spec, { actions: false });
+        })
+        .catch(err => console.error(err));
     </script>
   </body>
 </html>
