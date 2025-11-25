@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>MBTA Project | Visualizations</title>
+
+    <!-- Vega Install for interactive altair chart on website -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <!-- Style Referencing -->
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo">MBTA Project Group 31</a>
+
+      <nav class="navbar">
+        <a href="references.html">References</a>
+        <a href="visualizations.html" class="active">Visualizations</a>
+        <a href="summary.html">Summary</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <div class="frame-content">
+
+        <h1>MBTA Data Visualizations</h1>
+
+        <div class="tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="tab1">Graph 1</button>
+            <button class="tab-btn" data-tab="tab2">Graph 2</button>
+            <button class="tab-btn" data-tab="tab3">Graph 3</button>
+            <button class="tab-btn" data-tab="tab4">Graph 4</button>
+            <button class="tab-btn" data-tab="tab5">Graph 5</button>
+          </div>
+
+          <div class="tab-content">
+            <div id="tab1" class="tab-pane active">
+              <div class="visualization-block">
+                  <div class="visualization-area">
+                    <div id="chart1"></div>
+                  </div>
+
+                  <div class="visualization-text">
+                    <h3> Graph 1</h3>
+                    <p>
+                      This interactive visualization allows users to see average delay of the different orange line
+                      stops over the hours of 2 - 11PM. The visualization demonstrates how the highest delays on average
+                      occur between the hours of 6 - 8PM, with there being a rise in delays especially between 5 - 6PM,
+                      most likely due to people commuting home after work around these times. The stop with the highest
+                      delays on average is the stop with stop ID 70012, which corresponds to Massachusetts Avenue. The stop with
+                      the lowest delays on average is the stop with stop ID 70001, which corresponds to Forest Hills
+                      going in the direction of Oak Grove. This makes sense as Massachusetts Avenue is surrounded by
+                      popular stops such as Back Bay and Ruggles. As people attempt to rush on or off the train in the stops
+                      surrounding, as well as at the Massachusetts Avenue stop itself, the train can get delayed. Forest
+                      Hills having the least delays also makes sense as it is an endpoint stop, and less people travel
+                      to the stops at the far ends of the orange line. Thus, to avoid encountering a delayed orange line
+                      train, one should try to avoid traveling to or from Massachusetts Avenue using the orange line,
+                      especially during the hours of 6 - 8PM.
+                  </div>
+                </div>
+            </div>
+            <div id="tab2" class="tab-pane">
+              <div class="visualization-block">
+                  <div class="visualization-area">
+                    <!-- Replace this with your chart, image, or iframe -->
+                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                  </div>
+
+                  <div class="visualization-text">
+                    <h3>Graph 21</h3>
+                    <p>
+                      This graph depicts an overall view on average minutes delayed given hour of the day from 2 to 11 PM
+                      for stops on the orange line. The orange line seems to be the most delayed between the hours
+                      of 6 - 8 PM, which makes sense as this is typically the time when people are commuting home from
+                      work. As more people fill up the orange line, the train will be more prone to delays as people
+                      hold up the train while rushing on or off. Interestingly, it seems that on average, the train comes early
+                      from around 2 - 5 PM and after 9 PM. This could also cause frustrations for people as if the train
+                      departs earlier than expected, they may be forced to take a later train than planned. Thus, the
+                      safest time to take the orange line and guarantee the most on-time train is at 5 PM or 9 PM.
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div id="tab3" class="tab-pane">
+              <div class="visualization-block">
+                  <div class="visualization-area">
+                    <!-- Replace this with your chart, image, or iframe -->
+                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                  </div>
+
+                  <div class="visualization-text">
+                    <h3>Graph 3</h3>
+                    <p>
+                      This is where out very specific and incredibly accurate and super precise and amazingly perfect description
+                      of our simply fantastic project visualization is going to be. no cap all hat. 
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div id="tab4" class="tab-pane">
+              <div class="visualization-block">
+                  <div class="visualization-area">
+                    <!-- Replace this with your chart, image, or iframe -->
+                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                  </div>
+
+                  <div class="visualization-text">
+                    <h3>Graph 4</h3>
+                    <p>
+                      This is where out very specific and incredibly accurate and super precise and amazingly perfect description
+                      of our simply fantastic project visualization is going to be. no cap all hat. 
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div id="tab5" class="tab-pane">
+              <div class="visualization-block">
+                  <div class="visualization-area">
+                    <!-- Replace this with your chart, image, or iframe -->
+                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                  </div>
+
+                  <div class="visualization-text">
+                    <h3>Graph 5</h3>
+                    <p>
+                      This is where out very specific and incredibly accurate and super precise and amazingly perfect description
+                      of our simply fantastic project visualization is going to be. no cap all hat. 
+                    </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      </div>
+    </main>
+
+
+    <script>
+    // tab switching
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabPanes = document.querySelectorAll(".tab-pane");
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+          btn.classList.add("active");
+          const target = document.getElementById(btn.dataset.tab);
+          target.classList.add("active");
+        });
+      });
+    </script>
+
+    <script>
+      fetch("data/avg_delay_min_per_stop.json")
+        .then(response => response.json())
+        .then(spec => {
+          vegaEmbed("#chart1", spec, { actions: false });
+        })
+        .catch(err => console.error(err));
+    </script>
+  </body>
+</html>
