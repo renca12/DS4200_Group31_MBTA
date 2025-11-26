@@ -7,6 +7,7 @@ ridership.then(function(data){
         d.delay_minutes = +d.delay_minutes;
     });
 
+
     // Aggregate total delay by station
     const delayByStation = d3.rollup(
         data,
@@ -41,7 +42,10 @@ ridership.then(function(data){
 
     // Set up scales for x and y axes
     let yScale = d3.scaleLinear()
-        .domain([0, d3.max(aggregated, d => d.total_delay)]) 
+    .domain([
+        d3.min(aggregated, d => d.total_delay),  
+        d3.max(aggregated, d => d.total_delay)
+    ])
         .range([height - margin.bottom, margin.top]);
 
     let xScale = d3.scaleBand()
@@ -55,11 +59,11 @@ ridership.then(function(data){
         .enter()
         .append('rect')
         .attr('class', 'bar')
-        .attr('x', d => xScale(d.stop_name))  
-        .attr('y', d => yScale(d.total_delay)) 
-        .attr('width', xScale.bandwidth())  
-        .attr('height', d => height - margin.bottom - yScale(d.total_delay))  
-        .attr('fill', 'orange');
+        .attr('x', d => xScale(d.stop_name))
+        .attr('y', d => d.total_delay >= 0 ? yScale(d.total_delay) : yScale(0))  
+        .attr('width', xScale.bandwidth())
+        .attr('height', d => Math.abs(yScale(d.total_delay) - yScale(0))) 
+        .attr('fill', d => d.total_delay >= 0 ? 'orange' : 'steelblue'); 
 
     // Add x-axis
     svg.append('g')
