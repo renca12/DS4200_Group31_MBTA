@@ -1,5 +1,5 @@
 // Load the data
-const ridership = d3.csv("data/processed_ridership_delay.csv");  // Add data/ prefix
+const ridership = d3.csv("data/data/processed_ridership_delay.csv");  // Add data/ prefix
 
 ridership.then(function(data){
     // Convert string values to numbers
@@ -38,7 +38,7 @@ ridership.then(function(data){
         .append('svg')
         .attr('width', width)
         .attr('height', height)
-        .style('background', '#FAF7F5');
+        .style('background', '#ffffff');
 
     // Set up scales for x and y axes
     let yScale = d3.scaleLinear()
