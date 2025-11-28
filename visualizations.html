@@ -46,7 +46,7 @@
             <div id="tab1" class="tab-pane active">
               <div class="visualization-block">
                   <div class="visualization-area">
-                    <div id="chart1"></div>
+                      <img alt="Chart 1" src="data/chart_assets/chart_1.png"/>
                   </div>
 
                   <div class="visualization-text">
@@ -71,12 +71,11 @@
             <div id="tab2" class="tab-pane">
               <div class="visualization-block">
                   <div class="visualization-area">
-                    <!-- Replace this with your chart, image, or iframe -->
-                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                    <div id="chart2"></div>
                   </div>
 
                   <div class="visualization-text">
-                    <h3>Graph 21</h3>
+                    <h3>Graph 2</h3>
                     <p>
                       This graph depicts an overall view on average minutes delayed given hour of the day from 2 to 11 PM
                       for stops on the orange line. The orange line seems to be the most delayed between the hours
@@ -93,8 +92,7 @@
             <div id="tab3" class="tab-pane">
               <div class="visualization-block">
                   <div class="visualization-area">
-                    <!-- Replace this with your chart, image, or iframe -->
-                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                    <div id="chart3"></div>
                   </div>
 
                   <div class="visualization-text">
@@ -114,8 +112,7 @@
             <div id="tab4" class="tab-pane">
               <div class="visualization-block">
                   <div class="visualization-area">
-                    <!-- Replace this with your chart, image, or iframe -->
-                    <img src="assets/sample_chart.png" alt="Visualization Example" />
+                    <div id="chart4"></div>
                   </div>
 
                   <div class="visualization-text">
@@ -140,7 +137,7 @@
                   <div class="visualization-area">
                     <!-- Replace this with your chart, image, or iframe -->
                     <script src='https://d3js.org/d3.v7.min.js'></script>
-                    <script src='data_vis.js'></script>   
+                    <script src='data/chart_assets/data_vis.js'></script>   
                   </div>
 
                   <div class="visualization-text">
@@ -187,13 +184,34 @@
       });
     </script>
 
+    <!-- ALTAIR CHARTS-->
+
+
     <script>
-      fetch("data/avg_delay_min_per_stop.json")
+      fetch("data/chart_assets/chart_2.json")
         .then(response => response.json())
         .then(spec => {
-          vegaEmbed("#chart1", spec, { actions: false });
+          vegaEmbed("#chart2", spec, { actions: false });
         })
         .catch(err => console.error(err));
+    </script>
+
+    <script>
+      fetch("data/chart_assets/chart_3.json")
+        .then(response => response.json())
+        .then(spec => {
+          vegaEmbed("#chart3", spec, { actions: false });
+        })
+        .catch(err => console.error(err));
+    </script>
+
+    <script>
+      fetch("data/chart_assets/chart_4.json")
+        .then(response => response.json())
+        .then(spec => {
+          vegaEmbed("#chart4", spec, { actions: false });
+        })
+      .catch(err => console.error(err));
     </script>
   </body>
 </html>

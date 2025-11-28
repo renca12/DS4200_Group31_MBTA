@@ -303,6 +303,7 @@ p .type {
 
 .visualization-block {
   display: flex;
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   gap: 3rem;
@@ -312,25 +313,31 @@ p .type {
 }
 
 .visualization-area {
-  flex: 1 1 50%;
+  flex: 1 1 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 600px;
+  max-width: 1200px;
 }
 
-.visualization-area img,
+.visualization-area img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
 .visualization-area iframe {
   width: 100%;
-  max-width: 600px;
+  max-width: 1200px;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
 .visualization-text {
-  flex: 1 1 40%;
-  max-width: 500px;
+  flex: 1 1 80%;
+  max-width: 1200px;
 }
 
 .visualization-text h3 {
