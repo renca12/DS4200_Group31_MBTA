@@ -70,7 +70,30 @@
                   </div>
 
                   <div class="visualization-text">
+                  
                     <h3>Graph 2</h3>
+                    <p>
+                      This boxplot depicts the distribution of stop delays over the hours. There is the largest range
+                      of values once again between 6 - 8PM, most likely due to the most popular stops getting delayed
+                      while the less popular stops are not. This demonstrates that after those few "blockade" stops where
+                      the trains get delayed due to high traffic, they are able to recover some of that delayed time in
+                      the following, less popular stops. A train that was delayed at a stop like Massachusetts Avenue might
+                      depart earlier from a less popular stop to make up for the lost time, which would explain the
+                      negative delayed minutes (indicating that the train left earlier than expected).
+                    </p>
+                  </div>
+
+                </div>
+            </div>
+            <div id="tab3" class="tab-pane">
+              <div class="visualization-block">
+                  <div class="visualization-area">
+                    <div id="chart3"></div>
+                  </div>
+
+    
+                  <div class="visualization-text">
+                    <h3>Graph 3</h3>
                     <p>
                       This interactive visualization allows users to see the average delay of the different orange line
                       stops over the hours of 2 - 11PM. The visualization demonstrates how the highest delays on average
@@ -87,26 +110,8 @@
                       especially during the hours of 6 - 8PM.
                     </p>
                   </div>
-                </div>
-            </div>
-            <div id="tab3" class="tab-pane">
-              <div class="visualization-block">
-                  <div class="visualization-area">
-                    <div id="chart3"></div>
-                  </div>
 
-                  <div class="visualization-text">
-                    <h3>Graph 3</h3>
-                    <p>
-                      This boxplot depicts the distribution of stop delays over the hours. There is the largest range
-                      of values once again between 6 - 8PM, most likely due to the most popular stops getting delayed
-                      while the less popular stops are not. This demonstrates that after those few "blockade" stops where
-                      the trains get delayed due to high traffic, they are able to recover some of that delayed time in
-                      the following, less popular stops. A train that was delayed at a stop like Massachusetts Avenue might
-                      depart earlier from a less popular stop to make up for the lost time, which would explain the
-                      negative delayed minutes (indicating that the train left earlier than expected).
-                    </p>
-                  </div>
+
                 </div>
             </div>
             <div id="tab4" class="tab-pane">
@@ -185,10 +190,8 @@
     </script>
 
     <!-- ALTAIR CHARTS-->
-
-
     <script>
-      fetch("data/chart_assets/chart_2.json")
+      fetch("data/chart_assets/chart_3.json")
         .then(response => response.json())
         .then(spec => {
           vegaEmbed("#chart2", spec, { actions: false });
@@ -197,13 +200,15 @@
     </script>
 
     <script>
-      fetch("data/chart_assets/chart_3.json")
+      fetch("data/chart_assets/chart_2.json")
         .then(response => response.json())
         .then(spec => {
           vegaEmbed("#chart3", spec, { actions: false });
         })
         .catch(err => console.error(err));
     </script>
+
+    
 
     <script>
       fetch("data/chart_assets/chart_4.json")
