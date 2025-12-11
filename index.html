@@ -45,6 +45,33 @@
         time is off from the true departure time. Altogether, the end goal is to make a cohesive and comprehensive visualization for students 
         and frequent commuters to understand Orange Line behaviors. 
         </p>
+
+        <h2>
+          Data Introduction
+        </h2>
+
+        <p>
+        The data we decided to use was collected by the Massachusetts Bay Transportation Authority. The MBTA, which provides public transportation 
+        across Massachusetts, collects this data to further improve its services, and due to its government relations and knowledge of its own operations, 
+        we believe that this is a credible source. 
+
+        We obtained our data from the <a href="https://mbta-massdot.opendata.arcgis.com/search?tags=rapid%2520transit">MBTA website</a> at the following 
+        <a href="(https://mbta-massdot.opendata.arcgis.com/datasets/MassDOT::rapid-transit-and-bus-prediction-accuracy-data/about)">source</a>. We made sure 
+        that the data was able to be loaded and currently contains 9672 rows of data, though it is continuously updating and likely to surpass 
+        this during our research. We’ve noted that the data is collected on a weekly basis for each line and mode of transport, allowing for 
+        insights to be drawn on a weekly basis. This accounts for half of our visualizations. 
+        </p>
+        <p>
+          ——
+        </p>
+        <p>
+        Another dataset we ended up using was one we created ourselves. Pulled from the <a href="https://github.com/mbta/gtfs-documentation">MBTA V3 API</a>, it 
+        combines the GTFS static schedule data (the planned arrival and departure times) with the GTFS-Realtime data to get the real-time arrival and departure times. 
+        This way, we can directly compare the differences and check the MBTA line accuracy. This allows us to compare which locations are consistently facing slowdowns 
+        and see which days and seasons tend to have worse MBTA activity. 
+        We’re focusing on the Orange line to narrow down our scope from the massive dataset. Something unique about this approach is that we can pull up-to-date, 
+        real-world data rather than relying on historical archives, which may no longer be relevant. This accounts for the other half of our visualizations. 
+        </p>
       </div>
     </main>
 
